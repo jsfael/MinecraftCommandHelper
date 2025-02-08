@@ -18,7 +18,7 @@ namespace MinecraftCommandAPI.Controllers
             MinecraftEnchant = JsonSerializer.Deserialize<Dictionary<string, int[]>>(json) ?? new Dictionary<string, int[]>();
         }
 
-        [HttpGet("give")]
+        [HttpGet("enchant")]
         public IActionResult GetEnchantmentCommand([FromQuery] string? target, [FromQuery] string? playerName, [FromQuery] string? enchantment, [FromQuery] int? level = null)
         {
             if (!string.IsNullOrEmpty(target) && !string.IsNullOrEmpty(playerName))

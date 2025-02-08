@@ -21,7 +21,7 @@ namespace MinecraftCommandHelper.Model
 
         public override string ToString()
         {
-            var command = $"/effect give {Target.Target} {Effect}";
+            var command = $"/effect {Target.Target} {Effect}";
 
             if (Duration.HasValue)
             {
