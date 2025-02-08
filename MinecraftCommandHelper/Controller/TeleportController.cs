@@ -9,7 +9,7 @@ namespace MinecraftCommandHelper.Controller
     public class TeleportController : ControllerBase
     {
         [HttpGet("coordinates")]
-        public IActionResult TeleportToCoordinates([FromQuery] string? source, [FromQuery] double x, [FromQuery] double y, [FromQuery] double z, [FromQuery] string? playerName)
+        public IActionResult TeleportToCoordinates([FromQuery] string? playerName, [FromQuery] string? source, [FromQuery] double x, [FromQuery] double y, [FromQuery] double z)
         {
             if (!string.IsNullOrEmpty(source) && !string.IsNullOrEmpty(playerName))
             {
@@ -53,57 +53,5 @@ namespace MinecraftCommandHelper.Controller
             var command = teleportCommand.ToString();
             return Ok(new { Command = command });
         }
-
-        [HttpGet("target")]
-        public IActionResult TeleportToTarget([FromQuery] string source, [FromQuery] string destination)
-        {
-            CommandTarget commandSource;
-            CommandTarget commandDestination;
-
-            // Verificar o tipo de source escolhido
-            switch (source.ToLower())
-            {
-                case "self":
-                    commandSource = CommandTarget.Self();
-                    break;
-                case "nearest":
-                    commandSource = CommandTarget.NearestPlayer();
-                    break;
-                case "all":
-                    commandSource = CommandTarget.AllPlayers();
-                    break;
-                case "random":
-                    commandSource = CommandTarget.RandomPlayer();
-                    break;
-                default:
-                    return BadRequest("Invalid source value.");
-            }
-
-            // Verificar o tipo de destination escolhido
-            switch (destination.ToLower())
-            {
-                case "self":
-                    commandDestination = CommandTarget.Self();
-                    break;
-                case "nearest":
-                    commandDestination = CommandTarget.NearestPlayer();
-                    break;
-                case "all":
-                    commandDestination = CommandTarget.AllPlayers();
-                    break;
-                case "random":
-                    commandDestination = CommandTarget.RandomPlayer();
-                    break;
-                default:
-                    commandDestination = CommandTarget.Player(destination);
-                    break;
-            }
-
-            var teleportCommand = new TeleportCommand(commandSource, commandDestination);
-            var command = teleportCommand.ToString();
-            return Ok(new { Command = command });
-        }
     }
 }
-
-
