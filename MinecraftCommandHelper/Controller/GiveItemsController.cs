@@ -14,7 +14,7 @@ namespace MinecraftCommandAPI.Controllers
 
         static GiveItemsController()
         {
-            var json = System.IO.File.ReadAllText("GameData/Items/minecraft_items.json");
+            var json = System.IO.File.ReadAllText("GameData/Content/minecraft_items.json");
             MinecraftItems = JsonSerializer.Deserialize<string[]>(json);
         }
 

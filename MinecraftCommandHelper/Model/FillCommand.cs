@@ -19,6 +19,6 @@ public class FillCommand
 
     public string ToString()
     {
-        return $"/fill {Source.Target} ~ ~ ~ ~+{Width - 1} ~+{Height - 1} ~+{Depth - 1} {Block}";
+        return $"/fill {Source.Target} ~ ~ ~ ~+{Width - 1} ~+{Height - 1} ~+{Depth - 1} minecraft:{Block}";
     }
 }

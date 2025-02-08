@@ -1,5 +1,4 @@
-{
-  "values": [
+[
     "acacia_button",
     "acacia_door",
     "acacia_fence",
@@ -1104,5 +1103,4 @@
     "yellow_wool",
     "zombie_head",
     "zombie_wall_head"
-  ]
-}
+]
