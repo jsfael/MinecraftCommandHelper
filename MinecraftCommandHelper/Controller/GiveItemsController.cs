@@ -43,14 +43,12 @@ namespace MinecraftCommandAPI.Controllers
 
             CommandTarget commandTarget;
 
-            // Verificar se playerName foi fornecido
             if (!string.IsNullOrEmpty(playerName))
             {
                 commandTarget = CommandTarget.Player(playerName);
             }
             else
             {
-                // Verificar o tipo de target escolhido
                 switch (target.ToLower())
                 {
                     case "self":

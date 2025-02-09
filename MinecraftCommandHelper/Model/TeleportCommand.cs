@@ -10,7 +10,6 @@ namespace MinecraftCommandHelper.Model
         public double? Y { get; set; }
         public double? Z { get; set; }
 
-        // Construtor para /tp Command Target x y z
         public TeleportCommand(CommandTarget source, double x, double y, double z)
         {
             Source = source;
@@ -19,7 +18,6 @@ namespace MinecraftCommandHelper.Model
             Z = z;
         }
 
-        // Construtor para /tp Command Target Command Target
         public TeleportCommand(CommandTarget source, CommandTarget destination)
         {
             Source = source;

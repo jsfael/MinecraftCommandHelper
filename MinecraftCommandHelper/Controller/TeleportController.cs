@@ -18,14 +18,12 @@ namespace MinecraftCommandHelper.Controller
 
             CommandTarget commandSource;
 
-            // Verificar se playerName foi fornecido
             if (!string.IsNullOrEmpty(playerName))
             {
                 commandSource = CommandTarget.Player(playerName);
             }
             else if (!string.IsNullOrEmpty(source))
             {
-                // Verificar o tipo de source escolhido
                 switch (source.ToLower())
                 {
                     case "self":

@@ -18,14 +18,12 @@ namespace MinecraftCommandAPI.Controllers
             CommandTarget commandTarget;
             GamemodeCommand commandGamemode;
 
-            // Verificar se playerName foi fornecido
             if (!string.IsNullOrEmpty(playerName))
             {
                 commandTarget = CommandTarget.Player(playerName);
             }
             else if (!string.IsNullOrEmpty(target))
             {
-                // Verificar o tipo de target escolhido
                 switch (target.ToLower())
                 {
                     case "self":
@@ -49,7 +47,6 @@ namespace MinecraftCommandAPI.Controllers
                 return BadRequest("Either target or playerName must be specified.");
             }
 
-            // Verificar o tipo de gamemode escolhido
             switch (gamemode.ToLower())
             {
                 case "creative":
